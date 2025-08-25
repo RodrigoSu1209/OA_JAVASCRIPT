@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Prueba final del gran archivista | Adventure Code </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Rodrigo Damian Suarez Olivera" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura JavaScript</title>
+    <style>
+        /* ESTILOS GENERALES DEL HEADER */
+        .adventure-header {
+            background: linear-gradient(135deg, #1e3c32 0%, #2c5c4d 100%);
+            padding: 40px 0;
+            border-bottom: 4px solid #d2691e;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* TÍTULO PRINCIPAL */
+        .main-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            font-size: 48px;
+            animation: float 3s ease-in-out infinite;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .title-text {
+            color: #d2691e;
+            font-family: 'Arial', sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 0;
+        }
+
+        .subtitle {
+            color: #8fbc8f;
+            font-size: 18px;
+            margin: 0;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ELEMENTOS DECORATIVOS */
+        .header-decoration {
+            position: absolute;
+            z-index: 1;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        .decoration-1 {
+            top: 20px;
+            left: 10%;
+            font-size: 28px;
+        }
+
+        .decoration-2 {
+            top: 30px;
+            right: 12%;
+            font-size: 24px;
+            animation-delay: 1s;
+        }
+
+        .decoration-3 {
+            bottom: 25px;
+            left: 15%;
+            font-size: 22px;
+            animation-delay: 0.5s;
+        }
+
+        .decoration-4 {
+            bottom: 35px;
+            right: 8%;
+            font-size: 26px;
+            animation-delay: 1.5s;
+        }
+
+        .decoration-5 {
+            top: 50%;
+            left: 5%;
+            font-size: 20px;
+            animation-delay: 0.8s;
+        }
+
+        .decoration-6 {
+            top: 45%;
+            right: 6%;
+            font-size: 18px;
+            animation-delay: 1.2s;
+        }
+
+        /* LÍNEA SEPARADORA ANIMADA */
+        .header-line {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d2691e, transparent);
+            margin: 20px auto;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .header-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #8fbc8f, transparent);
+            animation: slideLine 3s infinite;
+        }
+
+        /* ANIMACIONES */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+            100% { opacity: 1; transform: scale(1.2) rotate(10deg); }
+        }
+
+        @keyframes slideLine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* EFECTO DE BRILLO */
+        .adventure-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(210, 105, 30, 0.15) 0%, transparent 60%);
+            animation: pulseGlow 4s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.4; }
+        }
+
+        /* TEXTO ADICIONAL */
+        .header-tagline {
+            color: #f5f5dc;
+            font-size: 16px;
+            margin-top: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .title-text {
+                font-size: 28px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+            
+            .header-decoration {
+                font-size: 20px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .title-text {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 14px;
+            }
+            
+            .header-tagline {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="adventure-header">
+        <!-- Elementos decorativos -->
+        <div class="header-decoration decoration-1">⚔️</div>
+        <div class="header-decoration decoration-2">🏹</div>
+        <div class="header-decoration decoration-3">🛡️</div>
+        <div class="header-decoration decoration-4">🔮</div>
+        <div class="header-decoration decoration-5">📜</div>
+        <div class="header-decoration decoration-6">🗝️</div>
+
+        <div class="header-container">
+            <div class="main-title">
+                <div class="logo">🏛️</div>
+                <div>
+                    <h1 class="title-text">Adventur Code en JavaScript</h1>
+                    <p class="subtitle">El Templo del Código</p>
+                </div>
+                <div class="logo">⚡</div>
+            </div>
+
+            <p class="header-tagline">Domina los secretos de la programación y conviértete en un Guardián del Código</p>
+            
+            <div class="header-line"></div>
+        </div>
+    </header>
+</body>
+</html></head>
+<body class="exe-web-site exe-search-bar exe-auto-math exe-atools" id="exe-node-38"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Adventure Code</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Inicio</a></li>
+   <li><a href="objetivos.html" class="daddy">Objetivos</a>
+   <ul class="other-section">
+      <li><a href="a_quin_va_dirigido.html" class="no-ch">¿A quién va dirigido?</a></li>
+      <li><a href="para_una_mejor_experiencia.html" class="no-ch">Para una mejor experiencia...</a></li>
+      <li><a href="requisitos_para_la_aventura.html" class="no-ch">Requisitos para la aventura</a></li>
+   </ul>
+   </li>
+   <li><a href="el_misterio_del_manuscrito_codificado.html" class="daddy">El Misterio del Manuscrito Codificado</a>
+   <ul class="other-section">
+      <li><a href="prueba_del_archivista.html" class="no-ch">Prueba del Archivista</a></li>
+   </ul>
+   </li>
+   <li><a href="el_tesoro_perdido_del_templo_cdigo.html" class="daddy">El Tesoro Perdido del Templo Código</a>
+   <ul class="other-section">
+      <li><a href="cajas_mgicas.html" class="no-ch">Cajas mágicas</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="la_prueba_final_del_templo_del_cdigo.html" class="current-page-parent daddy">La Prueba Final del Templo del Código</a>
+   <ul>
+      <li id="active"><a href="prueba_final_del_gran_archivista.html" class="active no-ch">Prueba final del gran archivista</a></li>
+   </ul>
+   </li>
+   <li><a href="ganador.html" class="no-ch">¡¡Ganador!!</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="la_prueba_final_del_templo_del_cdigo.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><span class="page-counter">Página <strong>11</strong> de <strong>13</strong></span> <span class="sep">| </span><a href="ganador.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">Prueba final del gran archivista</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id28">
+<div class="iDevice emphasis0" >
+<div id="ta28_138_2" class="block iDevice_content">
+<div class="exe-text"><p><iframe width="100%" height="600" src="https://trinket.io/embed/html/2e1f59e639ff" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen="allowfullscreen"></iframe></p></div><div class="iDevice_buttons feedback-button js-required"><input type="button" class="feedbackbutton" value="Mostrar retroalimentación" /></div><div class="feedback js-feedback js-hidden"><p>🌟 RETROALIMENTACIÓN - AVENTURA JAVASCRIPT: </p>
+<p>Querido Aventurero del Código:  </p>
+<p>Antes de comenzar tu misión en el Templo JavaScript, recuerda estos conceptos esenciales que te guiarán en tu prueba final.  </p>
+<p>📦 Variables:  </p>
+<p>Son como cofres donde guardas tesoros (datos). Usa <strong>`let`</strong> cuando el valor puede cambiar y <strong>`const`</strong> cuando sea permanente. ¡Elige nombres claros que describan lo que contienen!  </p>
+<p>🔤 Tipos de Datos: </p>
+<p>JavaScript trabaja con diferentes tipos de información:  </p>
+<ul>
+<li>Strings: Texto entre comillas (ej: "Hola")  </li>
+<li>Numbers: Números enteros o decimales (ej: 15, 3.14)  </li>
+<li>Booleans: Valores lógicos (true/false) para tomar decisiones  </li>
+</ul>
+<p><strong>⚔️ Operadores:</strong></p>
+<p>Son tus herramientas para manipular datos:  </p>
+<ul>
+<li>Aritméticos: <strong>`+ - * / %`</strong> para cálculos matemáticos  </li>
+<li>Comparación: <strong>`&gt;, &lt;, ===,  !, ==`</strong> para comparar valores  </li>
+<li>Lógicos: <strong>`&amp;&amp;, ||, !`</strong> para combinar condiciones (Y, O, NO)  o su respectivo nombre en inglés ... por ejemplo o  --&gt; or.</li>
+</ul>
+<p></p>
+<p>💡 Consejos Clave:  </p>
+<p>1. Precisión: <strong>`===`</strong> compara valor Y tipo, mientras que <strong>`==`</strong> solo compara valor  </p>
+<p>2. Inmutabilidad: Los valores booleanos y números son inmutables  </p>
+<p>3. Legibilidad: Usa nombres de variables descriptivos <strong>(ej: `edadUsuario` en vez de `eu`)  </strong></p>
+<p></p>
+<p>🎯 Tu Misión:</p>
+<p>Demuestra que puedes identificar, corregir y combinar estos conceptos. No se trata de memorizar, sino de comprender cómo trabajan juntos para resolver problemas.  </p>
+<p></p>
+<p>❓ Si te estancas y no puedes avanzar:  </p>
+<ul>
+<li>- Revisa los videos de la aventura  </li>
+<li>Analiza qué tipo de dato estás manejando  </li>
+<li>Verifica que los operadores coincidan con la operación.</li>
+</ul>
+<p>Recuerda: Cada error es una oportunidad de aprendizaje. ¡Confía en tu lógica y demuestra que estás listo para convertirte en Guardián JavaScript!  </p>
+<p>¡El Templo del Código aguarda a quien domina sus fundamentos! 🏛️💻</p></div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-nc-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licencia Creative Commons Reconocimiento No comercial Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="la_prueba_final_del_templo_del_cdigo.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><span class="page-counter">Página <strong>11</strong> de <strong>13</strong></span> <span class="sep">| </span><a href="ganador.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_cedec_js.js"></script></body></html>
